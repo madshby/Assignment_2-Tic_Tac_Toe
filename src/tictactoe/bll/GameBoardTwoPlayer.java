@@ -62,6 +62,7 @@ public class GameBoardTwoPlayer implements IGameModel {
      */
     @Override
     public boolean isGameOver() {
+
         return movesLeft == 0 || winner < 2;
     }
 
@@ -88,12 +89,12 @@ public class GameBoardTwoPlayer implements IGameModel {
                 winner = 0;
             }
         }
-        // Checks diagonally from the left, for a winner. (Vertically)
+        // Checks diagonally from the left, for a winner. (Diagonally)
         if (gameGrid[m][n] == 1 && gameGrid[m + 1][n + 1] == 1 && gameGrid[m + 2][n + 2] == 1) {
             winner = 1;
         } else if (gameGrid[m][n] == 0 && gameGrid[m + 1][n + 1] == 0 && gameGrid[m + 2][n + 2] == 0) {
             winner = 0;
-            // Check diagonally from the right, for a winner. (Vertically)
+            // Check diagonally from the right, for a winner. (Diagonally)
         } else if (gameGrid[m][n + 2] == 1 && gameGrid[m + 1][n + 1] == 1 && gameGrid[m + 2][n] == 1) {
             winner = 1;
         } else if (gameGrid[m][n + 2] == 0 && gameGrid[m + 1][n + 1] == 0 && gameGrid[m + 2][n] == 0) {
